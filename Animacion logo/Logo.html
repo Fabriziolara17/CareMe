@@ -32,7 +32,7 @@
 
         #heart {
             width: 60%;
-            margin-top: -10%;
+            margin-top: -30%;
             margin-left: 20%;
         }
 
@@ -44,7 +44,7 @@
 
         #text {
             width: 80%;
-            top: 70%;
+            top: 60%;
             left: 10%;
         }
         
@@ -71,9 +71,9 @@
 </head>
 <body>
     <div class="logo-container">
-        <img id="heart" src="Corazón_logo.svg" alt="Corazón">
-        <img id="hands" src="Manos_logo.svg" alt="Manos">
-        <img id="text" src="Nombre_logo.svg" alt="Texto CareMe">
+        <img id="heart" src="https://raw.githubusercontent.com/Fabriziolara17/CareMe/main/Animacion%20logo/Corazón_logo.svg" alt="Corazón">
+        <img id="hands" src="https://raw.githubusercontent.com/Fabriziolara17/CareMe/main/Animacion%20logo/Manos_logo.svg" alt="Manos">
+        <img id="text" src="https://raw.githubusercontent.com/Fabriziolara17/CareMe/main/Animacion%20logo/Nombre_logo.svg" alt="Texto CareMe">
     </div>
 
     <script>
@@ -104,14 +104,14 @@
             
             // Animar corazón y manos simultáneamente
             tl.to("#heart", {
-                duration: 1.5,
+                duration: 1.2,
                 opacity: 1,
                 y: 0,
-                ease: "power2.out" // Cambié el bounce por power2.out
+                ease: "power2.out"
             }, 0);
             
             tl.to("#hands", {
-                duration: 1.5,
+                duration: 1.2,
                 opacity: 1,
                 y: 0,
                 ease: "power2.out"
@@ -119,13 +119,34 @@
             
             // Animar texto apareciendo después
             tl.to("#text", {
-                duration: 1.5,
+                duration: 0.8,
                 opacity: 1,
                 ease: "power1.inOut"
-            }, 0.7);
+            }, 1.5);
             
             // Iniciar animación continua después
             tl.call(startContinuousAnimation);
+        }
+        
+        // Animación continua para el corazón y las manos
+        function startContinuousAnimation() {
+            // Animación del corazón
+            gsap.to("#heart", {
+                duration: 1.5,
+                scale: 1.05,
+                yoyo: true,
+                repeat: -1,
+                ease: "sine.inOut"
+            });
+            
+            // Animación sutil de las manos
+            gsap.to("#hands", {
+                duration: 2,
+                y: -5,
+                yoyo: true,
+                repeat: -1,
+                ease: "sine.inOut"
+            });
         }
     </script>
 </body>
